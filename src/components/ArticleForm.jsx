@@ -219,8 +219,13 @@ function ArticleForm() {
                     <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close" onClick={() => setShowAlert(false)}></button>
                 </div>
             )}
+            <div className="d-none">
+                <ArticleList articles={articles} removeArticle={removeArticle} />
+            </div>
 
-            <ArticleList articles={articles} removeArticle={removeArticle} />
+
+
+
         </>
     );
 }
