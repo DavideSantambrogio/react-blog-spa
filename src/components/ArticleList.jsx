@@ -36,9 +36,7 @@ function ArticleList() {
     };
 
     return (
-        <div className='py-4'>
-
-
+        <div className='py-4 row'>
             {articles.map((article, index) => (
                 <div key={`${index}`} className="mb-4 col-6">
                     <Card >
