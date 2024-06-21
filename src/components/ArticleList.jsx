@@ -37,39 +37,36 @@ function ArticleList() {
 
     return (
         <div className='py-4'>
-            <Link to={`/create`}>
-                <Button color="primary">Crea nuovo post</Button>
-            </Link>
 
-            <Link to={`/`}>
-                <Button color="secondary">Torna alla Pagina iniziale</Button>
-            </Link>
 
             {articles.map((article, index) => (
-                <Card key={`article-${index}`} className="m-3 col-6">
-                    <CardBody>
-                        <CardTitle tag="h5">{article.title}</CardTitle>
-                        <div className='ratio ratio-16x9 mb-3'>
-                            <img src={article.image} alt="article" className='object-fit-cover' />
-                        </div>
+                <div key={`${index}`} className="mb-4 col-6">
+                    <Card >
+                        <CardBody>
+                            <CardTitle tag="h5">{article.title}</CardTitle>
+                            <div className='ratio ratio-16x9 mb-3'>
+                                <img src={article.image} alt="article" className='object-fit-cover' />
+                            </div>
 
-                        <CardText>
-                            <strong>Contenuto:</strong> {article.content}<br />
-                            <strong>Categoria:</strong> {article.category.name}<br />
-                            <strong>Tag:</strong> {article.tags.map(tag => tag.name).join(', ')}<br />
-                            <strong>Pubblicato:</strong> {article.published ? 'Sì' : 'No'}
-                        </CardText>
-
-
-                        <Link to={`/posts/${article.slug}`}>
-                            <Button color="primary">Visualizza Post</Button>
-                        </Link>
+                            <CardText>
+                                <strong>Contenuto:</strong> {article.content}<br />
+                                <strong>Categoria:</strong> {article.category.name}<br />
+                                <strong>Tag:</strong> {article.tags.map(tag => tag.name).join(', ')}<br />
+                                <strong>Pubblicato:</strong> {article.published ? 'Sì' : 'No'}
+                            </CardText>
 
 
-                        <Button color="danger" onClick={() => handleConfirmDelete(article.id, index)}>Rimuovi</Button>
-                    </CardBody>
-                </Card>
+                            <Link to={`/posts/${article.slug}`}>
+                                <Button color="primary">Visualizza Post</Button>
+                            </Link>
+
+
+                            <Button color="danger" onClick={() => handleConfirmDelete(article.id, index)}>Rimuovi</Button>
+                        </CardBody>
+                    </Card>
+                </div>
             ))}
+
         </div>
     );
 }

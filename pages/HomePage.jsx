@@ -11,6 +11,9 @@ function HomePage() {
       <Link to={`/posts`}>
         <Button color="primary">Vai alla lista dei post</Button>
       </Link>
+      <Link to={`/filter`}>
+        <Button color="secondary">Filtra post</Button>
+      </Link>
     </div>
   );
 }
